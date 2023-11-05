@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:united_store/constants.dart';
+import 'package:united_market/constants.dart';
 
 class AppSettingState extends ChangeNotifier {
 

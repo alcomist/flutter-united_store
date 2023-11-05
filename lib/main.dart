@@ -7,12 +7,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
 
-import 'package:united_store/constants.dart';
-import 'package:united_store/route/notifier.dart';
-import 'package:united_store/route/parser.dart';
-import 'package:united_store/route/delegate.dart';
+import 'package:united_market/constants.dart';
+import 'package:united_market/route/notifier.dart';
+import 'package:united_market/route/parser.dart';
+import 'package:united_market/route/delegate.dart';
 
-import 'package:united_store/state/app_state.dart';
+import 'package:united_market/state/app_state.dart';
 
 // window width and height for Windows app
 const double windowWidth = 675;
