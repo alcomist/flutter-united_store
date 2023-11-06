@@ -1,9 +1,7 @@
 enum PageNames {
-  main,
+  home,
   setting,
-  gameSelect,
-  gamePlay,
-  gameResult,
+  userSelect,
   // about,
 }
 
@@ -14,15 +12,11 @@ class AppRoute {
 
   final String pageName;
 
-  AppRoute.main() : pageName = PageNames.main.name;
+  AppRoute.home() : pageName = PageNames.home.name;
 
   AppRoute.setting() : pageName = PageNames.setting.name;
 
-  AppRoute.gamePlay() : pageName = PageNames.gamePlay.name;
-
-  AppRoute.gameSelect() : pageName = PageNames.gameSelect.name;
-
-  AppRoute.gameResult() : pageName = PageNames.gameResult.name;
+  AppRoute.userSelect() : pageName = PageNames.userSelect.name;
 
   //AppRoute.about() : pageName = PageName.about.name;
 
@@ -39,11 +33,9 @@ class AppRoute {
     }
 
     return switch (PageNames.values.byName(path)) {
-      PageNames.main => AppRoute.main(),
+      PageNames.home => AppRoute.home(),
       PageNames.setting => AppRoute.setting(),
-      PageNames.gamePlay => AppRoute.gamePlay(),
-      PageNames.gameSelect => AppRoute.gameSelect(),
-      PageNames.gameResult => AppRoute.gameResult(),
+      PageNames.userSelect => AppRoute.userSelect(),
     };
   }
 }

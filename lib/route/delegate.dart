@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:united_market/route/route.dart';
 import 'package:united_market/route/notifier.dart';
 
+import 'package:united_market/page/home.dart';
+import 'package:united_market/page/user_select.dart';
+
 class AppRouterDelegate extends RouterDelegate<AppRoute>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<AppRoute> {
   final PageNotifier notifier;
@@ -16,10 +19,12 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
     return Navigator(
         key: navigatorKey,
         pages: [
-          //if (AppRoute.isUnknown(notifier.pageName))
-            //MaterialPage(child: MainPage()),
-          //if (notifier.pageName == PageNames.main.name)
-            //MaterialPage(child: MainPage()),
+          if (AppRoute.isUnknown(notifier.pageName))
+            const MaterialPage(child: HomePage()),
+          if (notifier.pageName == PageNames.home.name)
+            const MaterialPage(child: HomePage()),
+          if (notifier.pageName == PageNames.userSelect.name)
+            const MaterialPage(child: UserSelectPage()),
           //if (notifier.pageName == PageNames.gameSelect.name)
             //const MaterialPage(child: GameSelectPage()),
           //if (notifier.pageName == PageNames.gamePlay.name)
