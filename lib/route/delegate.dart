@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:united_market/page/user_detail.dart';
 import 'package:united_market/route/route.dart';
 import 'package:united_market/route/notifier.dart';
 
@@ -25,8 +26,8 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
             const MaterialPage(child: HomePage()),
           if (notifier.pageName == PageNames.userSelect.name)
             const MaterialPage(child: UserSelectPage()),
-          //if (notifier.pageName == PageNames.gameSelect.name)
-            //const MaterialPage(child: GameSelectPage()),
+          if (notifier.pageName == PageNames.userDetail.name)
+            const MaterialPage(child: UserDetailPage()),
           //if (notifier.pageName == PageNames.gamePlay.name)
             //const MaterialPage(child: GamePlayPage()),
           //if (notifier.pageName == PageNames.gameResult.name)

@@ -11,15 +11,12 @@ class AppRouteInformationParser extends RouteInformationParser<AppRoute> {
       return AppRoute.home();
     }
 
-    //If path includes more than one segement, go to 404
+    //If path includes more than one segment, go to 404
     if (uri.pathSegments.length > 1) {
       return AppRoute.unknown();
     }
 
     if (uri.pathSegments.length == 1) {
-      //print('parse');
-      //print(uri.pathSegments.first);
-
       return AppRoute.getInstance(uri.pathSegments.first);
     }
 

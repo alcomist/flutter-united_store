@@ -2,7 +2,7 @@ enum PageNames {
   home,
   setting,
   userSelect,
-  // about,
+  userDetail,
 }
 
 class AppRoute {
@@ -13,13 +13,9 @@ class AppRoute {
   final String pageName;
 
   AppRoute.home() : pageName = PageNames.home.name;
-
   AppRoute.setting() : pageName = PageNames.setting.name;
-
   AppRoute.userSelect() : pageName = PageNames.userSelect.name;
-
-  //AppRoute.about() : pageName = PageName.about.name;
-
+  AppRoute.userDetail() : pageName = PageNames.userDetail.name;
   AppRoute.unknown() : pageName = '';
 
   //Used to get the current path
@@ -36,6 +32,7 @@ class AppRoute {
       PageNames.home => AppRoute.home(),
       PageNames.setting => AppRoute.setting(),
       PageNames.userSelect => AppRoute.userSelect(),
+      PageNames.userDetail => AppRoute.userDetail(),
     };
   }
 }

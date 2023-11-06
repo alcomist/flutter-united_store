@@ -12,7 +12,8 @@ import 'package:united_market/route/notifier.dart';
 import 'package:united_market/route/parser.dart';
 import 'package:united_market/route/delegate.dart';
 
-import 'package:united_market/state/app_state.dart';
+import 'package:united_market/state/setting.dart';
+import 'package:united_market/state/parameter.dart';
 
 // window width and height for Windows app
 const double windowWidth = 600;
@@ -48,7 +49,7 @@ class App extends StatelessWidget {
     return MultiProvider(providers: [
       ChangeNotifierProvider<PageNotifier>(create: (_) => PageNotifier()),
       ChangeNotifierProvider<AppSettingState>(create: (_) => AppSettingState()),
-      //ChangeNotifierProvider<GameAppState>(create: (_) => GameAppState()),
+      ChangeNotifierProvider<AppParameterState>(create: (_) => AppParameterState()),
     ], child: const MainApp());
   }
 }

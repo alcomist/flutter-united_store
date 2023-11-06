@@ -7,12 +7,12 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<User>> fetchUsers() async {
+
   const path = '/users';
   Uri url = Uri.https(httpAuthority, path);
   final response = await http.get(url);
 
   if (response.statusCode == 200) {
-    print(response.body);
     // If the server did return a 200 OK response,
     // then parse the JSON.
     List<User> users = (jsonDecode(response.body) as List)
@@ -23,6 +23,23 @@ Future<List<User>> fetchUsers() async {
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
-    throw Exception('Failed to load album');
+    throw Exception('Failed to load users');
+  }
+}
+
+Future<User> fetchUser(int id) async {
+
+  String path = '/users/$id';
+  Uri url = Uri.https(httpAuthority, path);
+  final response = await http.get(url);
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    return User.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load users');
   }
 }
