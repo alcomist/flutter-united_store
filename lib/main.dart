@@ -15,13 +15,13 @@ import 'package:united_market/route/delegate.dart';
 import 'package:united_market/state/app_state.dart';
 
 // window width and height for Windows app
-const double windowWidth = 675;
-const double windowHeight = 1200;
+const double windowWidth = 600;
+const double windowHeight = 800;
 
 void setupWindow() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
-    setWindowTitle('United Store');
+    setWindowTitle('United Market');
     setWindowMinSize(const Size(windowWidth, windowHeight));
     setWindowMaxSize(const Size(windowWidth, windowHeight));
     getCurrentScreen().then((screen) {
@@ -70,7 +70,7 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
       routeInformationParser: AppRouteInformationParser(),
       routerDelegate:
       AppRouterDelegate(notifier: Provider.of<PageNotifier>(context)),
-      title: 'What time is it?',
+      title: 'United Market',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       themeMode: setting.themeMode,
