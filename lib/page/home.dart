@@ -11,7 +11,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final notifier = Provider.of<PageNotifier>(context);
 
     return Scaffold(

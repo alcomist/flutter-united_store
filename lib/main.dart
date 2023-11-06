@@ -70,7 +70,7 @@ class _MainAppState extends State<MainApp> with SingleTickerProviderStateMixin {
       debugShowCheckedModeBanner: false,
       routeInformationParser: AppRouteInformationParser(),
       routerDelegate:
-      AppRouterDelegate(notifier: Provider.of<PageNotifier>(context)),
+          AppRouterDelegate(notifier: Provider.of<PageNotifier>(context)),
       title: 'United Market',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
