@@ -24,3 +24,5 @@ enum ColorSeed {
   final String label;
   final Color color;
 }
+
+const String httpAuthority = 'fakestoreapi.com';
