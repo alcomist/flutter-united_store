@@ -5,6 +5,8 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:provider/provider.dart';
+import 'package:united_market/model/request.dart';
+import 'package:united_market/model/user.dart';
 
 import 'package:united_market/route/notifier.dart';
 import 'package:united_market/route/route.dart';
@@ -19,29 +21,27 @@ class UserSelectPage extends StatefulWidget {
 }
 
 class _UserSelectPageState extends State<UserSelectPage> {
-
   bool isLoaded = false;
-
-  Future<Response> getData() async {
-    const path = '/users';
-    Uri url = Uri.https(httpAuthority, path);
-    return http.get(url);
-  }
+  List<User> users = [];
 
   @override
   void initState() {
     super.initState();
 
-    getData().then((value) {
+    fetchUsers().then((value) {
+      setState(() {});
 
-      String result = value.body.toString().substring(0, 450);
-      debugPrint(result);
+      users = value;
+      if (users.isNotEmpty) {
+        isLoaded = true;
+        setState(() {});
+      }
+      //debugPrint(users);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
     final title = AppLocalizations.of(context)!.userSelectMessage;
 
     final containers = <Widget>[
@@ -71,18 +71,16 @@ class _UserSelectPageState extends State<UserSelectPage> {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: isLoaded ?
-
-        const CircularProgressIndicator() :
-        ListView.builder(
-          itemExtent: 100,
-          itemCount: containers.length,
-          // This next line does the trick.
-          scrollDirection: Axis.vertical,
-          itemBuilder: (BuildContext ctx, int idx) {
-            return containers[idx];
-          }
-        ),
+      body: !isLoaded
+          ? const CircularProgressIndicator()
+          : ListView.builder(
+              itemExtent: 100,
+              itemCount: users.length,
+              // This next line does the trick.
+              scrollDirection: Axis.vertical,
+              itemBuilder: (BuildContext ctx, int idx) {
+                return ListTile(title: Text(users[idx].name));
+              }),
     );
   }
 }
