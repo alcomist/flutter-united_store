@@ -1,7 +1,11 @@
 {
-  "appTitle": "United Store",
+  "appTitle": "United Market",
   "@appTitle": {
     "description": "App's Title"
+  },
+  "userSelectMessage": "Select user for login",
+  "@userSelectMessage": {
+    "description": "Message for user select page title"
   },
   "quitMessage": "Do you want to quit?'",
   "@quitMessage": {
