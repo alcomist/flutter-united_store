@@ -7,7 +7,6 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<User>> fetchUsers() async {
-
   const path = '/users';
   Uri url = Uri.https(httpAuthority, path);
   final response = await http.get(url);
@@ -28,7 +27,6 @@ Future<List<User>> fetchUsers() async {
 }
 
 Future<User> fetchUser(int id) async {
-
   String path = '/users/$id';
   Uri url = Uri.https(httpAuthority, path);
   final response = await http.get(url);

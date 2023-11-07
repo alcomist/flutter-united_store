@@ -3,9 +3,13 @@
   "@appTitle": {
     "description": "App's Title"
   },
-  "userSelectMessage": "Select user for login",
-  "@userSelectMessage": {
+  "userSelectTitle": "Select user",
+  "@userSelectTitle": {
     "description": "Message for user select page title"
+  },
+  "userDetailTitle": "User Detail",
+  "@userDetailTitle": {
+    "description": "Message for user detail page title"
   },
   "quitMessage": "Do you want to quit?'",
   "@quitMessage": {

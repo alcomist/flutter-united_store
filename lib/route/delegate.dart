@@ -18,22 +18,28 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
   @override
   Widget build(BuildContext context) {
     return Navigator(
-        key: navigatorKey,
-        pages: [
-          if (AppRoute.isUnknown(notifier.pageName))
-            const MaterialPage(child: HomePage()),
-          if (notifier.pageName == PageNames.home.name)
-            const MaterialPage(child: HomePage()),
-          if (notifier.pageName == PageNames.userSelect.name)
-            const MaterialPage(child: UserSelectPage()),
-          if (notifier.pageName == PageNames.userDetail.name)
-            const MaterialPage(child: UserDetailPage()),
-          //if (notifier.pageName == PageNames.gamePlay.name)
-            //const MaterialPage(child: GamePlayPage()),
-          //if (notifier.pageName == PageNames.gameResult.name)
-            //const MaterialPage(child: GameResultPage()),
-        ],
-        onPopPage: (route, result) => route.didPop(result));
+      key: navigatorKey,
+      pages: [
+        if (AppRoute.isUnknown(notifier.pageName))
+          const MaterialPage(child: HomePage()),
+        if (notifier.pageName == PageNames.home.name)
+          const MaterialPage(child: HomePage()),
+        if (notifier.pageName == PageNames.userSelect.name)
+          const MaterialPage(child: UserSelectPage()),
+        if (notifier.pageName == PageNames.userDetail.name)
+          const MaterialPage(child: UserDetailPage()),
+        //if (notifier.pageName == PageNames.gamePlay.name)
+        //const MaterialPage(child: GamePlayPage()),
+        //if (notifier.pageName == PageNames.gameResult.name)
+        //const MaterialPage(child: GameResultPage()),
+      ],
+      onPopPage: (route, result) {
+        if (!route.didPop(result)) {
+          return false;
+        }
+        return true;
+      },
+    );
   }
 
   //currentConfiguration is called whenever there might be a change in route

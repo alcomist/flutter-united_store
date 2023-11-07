@@ -12,7 +12,6 @@ import 'package:united_market/route/notifier.dart';
 import 'package:united_market/route/route.dart';
 
 import 'package:united_market/constants.dart';
-import 'package:united_market/state/parameter.dart';
 
 class UserSelectPage extends StatefulWidget {
   const UserSelectPage({super.key});
@@ -30,8 +29,6 @@ class _UserSelectPageState extends State<UserSelectPage> {
     super.initState();
 
     fetchUsers().then((value) {
-      setState(() {});
-
       users = value;
       if (users.isNotEmpty) {
         isLoaded = true;
@@ -43,10 +40,8 @@ class _UserSelectPageState extends State<UserSelectPage> {
 
   @override
   Widget build(BuildContext context) {
-
-    final parameter = Provider.of<AppParameterState>(context);
     final notifier = Provider.of<PageNotifier>(context);
-    final title = AppLocalizations.of(context)!.userSelectMessage;
+    final title = AppLocalizations.of(context)!.userSelectTitle;
 
     return Scaffold(
       appBar: AppBar(
@@ -65,7 +60,7 @@ class _UserSelectPageState extends State<UserSelectPage> {
                     return ListTile(
                       title: Text(users[idx].name),
                       onTap: () {
-                        parameter.changeUserId(users[idx].id);
+                        notifier.setUserId(users[idx].id);
                         notifier.changePage(page: PageNames.userDetail.name);
                       },
                     );

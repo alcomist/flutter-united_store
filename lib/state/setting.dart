@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:united_market/constants.dart';
 
 class AppSettingState extends ChangeNotifier {
-
   ColorSeed colorSelected = ColorSeed.baseColor;
   ThemeMode themeMode = ThemeMode.dark;
   bool useMaterial3 = true;
 
   void setThemeMode(BuildContext context) {
-    if ( View.of(context).platformDispatcher.platformBrightness == Brightness.light ) {
+    if (View.of(context).platformDispatcher.platformBrightness ==
+        Brightness.light) {
       themeMode = ThemeMode.light;
       return;
     }
@@ -16,10 +16,10 @@ class AppSettingState extends ChangeNotifier {
   }
 
   bool useLightMode(BuildContext context) {
-
     switch (themeMode) {
       case ThemeMode.system:
-        return View.of(context).platformDispatcher.platformBrightness == Brightness.light;
+        return View.of(context).platformDispatcher.platformBrightness ==
+            Brightness.light;
       case ThemeMode.light:
         return true;
       case ThemeMode.dark:

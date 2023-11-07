@@ -11,7 +11,6 @@ import 'package:united_market/route/route.dart';
 import 'package:united_market/constants.dart';
 
 class UserDetailPage extends StatefulWidget {
-
   const UserDetailPage({super.key});
 
   @override
@@ -19,18 +18,19 @@ class UserDetailPage extends StatefulWidget {
 }
 
 class _UserDetailPageState extends State<UserDetailPage> {
-
   late Future<User> user;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    //user = fetchUser(widget.userId);
+
+    final notifier = Provider.of<PageNotifier>(context);
+    user = fetchUser(notifier.userId);
   }
 
   @override
   Widget build(BuildContext context) {
-    final title = AppLocalizations.of(context)!.userSelectMessage;
+    final title = AppLocalizations.of(context)!.userDetailTitle;
 
     return Scaffold(
       appBar: AppBar(
@@ -38,20 +38,19 @@ class _UserDetailPageState extends State<UserDetailPage> {
       ),
       body: SafeArea(
         child: Center(
-          child: FutureBuilder<User>(
-            future: user,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Text(snapshot.data!.name);
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
+            child: FutureBuilder<User>(
+          future: user,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Text(snapshot.data!.name);
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
 
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
-          )
-        ),
+            // By default, show a loading spinner.
+            return const CircularProgressIndicator();
+          },
+        )),
       ),
     );
   }

@@ -9,6 +9,9 @@ const double largeWidthBreakpoint = 1500;
 
 const double transitionLength = 500;
 
+const double windowWidth = 600;
+const double windowHeight = 800;
+
 enum ColorSeed {
   baseColor('M3 Baseline', Color(0xff6750a4)),
   indigo('Indigo', Colors.indigo),
